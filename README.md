@@ -3,6 +3,8 @@ npm-validate-package-license
 
 Give me a string and I'll tell you if it's a valid npm package license.
 
+*This package is not endorsed or approved by npm. It is part of a proposal to add license field validation to the npm command-line interface.*
+
 <!-- js var valid = require('./'); -->
 
 ```js
