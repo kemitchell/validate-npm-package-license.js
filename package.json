@@ -18,6 +18,7 @@
   "main": "index.js",
   "repository": "kemitchell/npm-valid-package-license",
   "scripts": {
+    "precommit": "npm run test",
     "test": "jsmd README.md"
   }
 }
