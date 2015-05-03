@@ -1,0 +1,23 @@
+{
+  "name": "validate-npm-package-license",
+  "description": "Give me a string and I'll tell you if it's a valid npm package license",
+  "version": "0.0.0",
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
+  "bugs": "https://github.com/kemitchell/npm-valid-package-license/issues",
+  "devDependencies": {
+    "jsmd": "^0.3.0"
+  },
+  "homepage": "https://github.com/kemitchell/npm-valid-package-license",
+  "keywords": [
+    "license",
+    "npm",
+    "package",
+    "validation"
+  ],
+  "license": "Apache-2.0",
+  "main": "index.js",
+  "repository": "kemitchell/npm-valid-package-license",
+  "scripts": {
+    "test": "jsmd README.md"
+  }
+}
