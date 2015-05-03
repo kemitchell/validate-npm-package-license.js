@@ -20,5 +20,9 @@
   "scripts": {
     "precommit": "npm run test",
     "test": "jsmd README.md"
+  },
+  "dependencies": {
+    "spdx": "0.2.1",
+    "spdx-correct": "1.0.0-prerelease-2"
   }
 }
