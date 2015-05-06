@@ -5,8 +5,8 @@
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
   "bugs": "https://github.com/kemitchell/npm-valid-package-license/issues",
   "dependencies": {
-    "spdx": "0.2.1",
-    "spdx-correct": "1.0.0-prerelease-2"
+    "spdx": "^0.4.0",
+    "spdx-correct": "1.0.0-prerelease-3"
   },
   "devDependencies": {
     "jsmd": "^0.3.0"
