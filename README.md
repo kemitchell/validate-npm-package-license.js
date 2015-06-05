@@ -12,7 +12,7 @@ var validResult = {
 };
 
 valid('Apache-2.0'); // => validResult
-valid('GPL-3.0 OR BSD-2-Clause'); // => validResult
+valid('(GPL-3.0 OR BSD-2-Clause)'); // => validResult
 
 var invalidResult = {
   validForOldPackages: false,
