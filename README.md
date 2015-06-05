@@ -1,7 +1,7 @@
 validate-npm-package-license
 ============================
 
-Give me a string and I'll tell you if it's a valid npm package license.
+Give me a string and I'll tell you if it's a valid npm package license string.
 
 <!-- js var valid = require('./'); -->
 
