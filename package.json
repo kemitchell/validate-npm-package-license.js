@@ -6,7 +6,7 @@
   "bugs": "https://github.com/kemitchell/validate-npm-package-license.js/issues",
   "dependencies": {
     "spdx": "^0.4.0",
-    "spdx-correct": "1.0.0-prerelease-3"
+    "spdx-correct": "~1.0.0"
   },
   "devDependencies": {
     "jsmd": "^0.3.0"
