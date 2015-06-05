@@ -2,8 +2,14 @@
   "name": "validate-npm-package-license",
   "description": "Give me a string and I'll tell you if it's a valid npm package license",
   "version": "1.0.0-prerelease-3",
-  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (http://kemitchell.com)",
-  "bugs": "https://github.com/kemitchell/validate-npm-package-license.js/issues",
+  "author": {
+    "name": "Kyle E. Mitchell",
+    "email": "kyle@kemitchell.com",
+    "url": "http://kemitchell.com"
+  },
+  "bugs": {
+    "url": "https://github.com/kemitchell/validate-npm-package-license.js/issues"
+  },
   "dependencies": {
     "spdx": "^0.4.0",
     "spdx-correct": "~1.0.0"
@@ -20,7 +26,10 @@
   ],
   "license": "Apache-2.0",
   "main": "index.js",
-  "repository": "kemitchell/validate-npm-package-license.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kemitchell/validate-npm-package-license.js"
+  },
   "scripts": {
     "precommit": "npm run test",
     "test": "jsmd README.md"
