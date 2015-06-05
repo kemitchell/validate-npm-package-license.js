@@ -1,4 +1,4 @@
-npm-validate-package-license
+validate-npm-package-license
 ============================
 
 Give me a string and I'll tell you if it's a valid npm package license.
