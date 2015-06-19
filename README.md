@@ -6,29 +6,29 @@ Give me a string and I'll tell you if it's a valid npm package license string.
 <!-- js var valid = require('./'); -->
 
 ```js
-var validResult = {
+var noWarnings = {
   validForNewPackages: true,
   validForOldPackages: true
 };
 
 // SPDX license identifier for common open-source licenses
-valid('MIT'); // => validResult
-valid('BSD-2-Clause'); // => validResult
-valid('Apache-2.0'); // => validResult
-valid('ISC'); // => validResult
+valid('MIT'); // => noWarnings
+valid('BSD-2-Clause'); // => noWarnings
+valid('Apache-2.0'); // => noWarnings
+valid('ISC'); // => noWarnings
 
 // Simple SPDX license expression for dual licensing
-valid('(GPL-3.0 OR BSD-2-Clause)'); // => validResult
+valid('(GPL-3.0 OR BSD-2-Clause)'); // => noWarnings
 
 // Refer to a non-standard license found in the package
-valid('SEE LICENSE IN LICENSE.txt'); // => validResult
-valid('SEE LICENSE IN license.md'); // => validResult
+valid('SEE LICENSE IN LICENSE.txt'); // => noWarnings
+valid('SEE LICENSE IN license.md'); // => noWarnings
 
 // No license
-valid('UNLICENSED'); // => validResult
-valid('UNLICENCED'); // => validResult
+valid('UNLICENSED'); // => noWarnings
+valid('UNLICENCED'); // => noWarnings
 
-var warnWithSuggestion = {
+var warningsWithSuggestion = {
   validForOldPackages: false,
   validForNewPackages: false,
   warnings: [
@@ -41,9 +41,9 @@ var warnWithSuggestion = {
 };
 
 // Almost a valid SPDX license identifier
-valid('Apache 2.0'); // => warnWithSuggestion
+valid('Apache 2.0'); // => warningsWithSuggestion
 
-var warnAboutLicenseRef = {
+var warningAboutLicenseRef = {
   validForOldPackages: false,
   validForNewPackages: false,
   warnings: [
@@ -56,6 +56,6 @@ var warnAboutLicenseRef = {
 
 // LicenseRef-* identifiers are valid SPDX expressions,
 // but not valid in package.json
-valid('LicenseRef-Made-Up'); // => warnAboutLicenseRef
-valid('(MIT OR LicenseRef-Made-Up)'); // => warnAboutLicenseRef
+valid('LicenseRef-Made-Up'); // => warningAboutLicenseRef
+valid('(MIT OR LicenseRef-Made-Up)'); // => warningAboutLicenseRef
 ```
