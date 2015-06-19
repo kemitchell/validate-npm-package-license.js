@@ -1,7 +1,7 @@
 {
   "name": "validate-npm-package-license",
   "description": "Give me a string and I'll tell you if it's a valid npm package license string",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "author": {
     "name": "Kyle E. Mitchell",
     "email": "kyle@kemitchell.com",
