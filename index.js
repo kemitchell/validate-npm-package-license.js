@@ -6,33 +6,69 @@ var validResult = {
   validForOldPackages: true
 };
 
+var genericWarning = (
+  'license should be ' +
+  'a valid SPDX license expression without "LicenseRef", ' + 
+  '"UNLICENSED", or ' +
+  '"SEE LICENSE IN <filename>"'
+);
+
 var fileReferenceRE = /^SEE LICEN[CS]E IN (.+)$/;
 
-module.exports = function(argument) {
-  if (spdx.valid(argument)) {
-    return validResult;
-  } else if (
-    argument === 'UNLICENSED' ||
-    argument === 'UNLICENCED' ||
-    fileReferenceRE.test(argument)
-  ) {
-    return validResult;
+function startsWith(prefix, string) {
+  return string.slice(0, prefix.length) === prefix;
+}
+
+function usesLicenseRef(ast) {
+  if (ast.hasOwnProperty('license')) {
+    var license = ast.license;
+    return (
+      startsWith('LicenseRef', license) ||
+      startsWith('DocumentRef', license)
+    );
   } else {
-    var warnings = [
-      'license should be a valid SPDX license expression, ' + 
-      '"UNLICENSED", or ' +
-      '"SEE LICENSE IN <filename>"',
-    ];
-    var corrected = correct(argument);
-    if (corrected) {
-      warnings.push(
-        'license is similar to the valid expression "' + corrected + '"'
-      );
+    return (
+      usesLicenseRef(ast.left) ||
+      usesLicenseRef(ast.right)
+    );
+  }
+}
+
+module.exports = function(argument) {
+  var ast;
+
+  try {
+    ast = spdx.parse(argument);
+  } catch (e) {
+    if (
+      argument === 'UNLICENSED' ||
+      argument === 'UNLICENCED' ||
+      fileReferenceRE.test(argument)
+    ) {
+      return validResult;
+    } else {
+      var result = {
+        validForOldPackages: false,
+        validForNewPackages: false,
+        warnings: [genericWarning]
+      };
+      var corrected = correct(argument);
+      if (corrected) {
+        result.warnings.push(
+          'license is similar to the valid expression "' + corrected + '"'
+        );
+      }
+      return result;
     }
+  }
+
+  if (usesLicenseRef(ast)) {
     return {
-      validForOldPackages: false,
       validForNewPackages: false,
-      warnings: warnings
+      validForOldPackages: false,
+      warnings: [genericWarning]
     };
+  } else {
+    return validResult;
   }
 };
