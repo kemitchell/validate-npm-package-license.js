@@ -11,8 +11,11 @@ var validResult = {
   validForOldPackages: true
 };
 
-// SPDX license identifier for a common license
+// SPDX license identifier for common open-source licenses
+valid('MIT'); // => validResult
+valid('BSD-2-Clause'); // => validResult
 valid('Apache-2.0'); // => validResult
+valid('ISC'); // => validResult
 
 // Simple SPDX license expression for dual licensing
 valid('(GPL-3.0 OR BSD-2-Clause)'); // => validResult
