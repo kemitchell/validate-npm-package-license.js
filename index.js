@@ -1,15 +1,27 @@
 var spdx = require('spdx');
 var correct = require('spdx-correct');
 
+var validResult = {
+  validForNewPackages: true,
+  validForOldPackages: true
+};
+
+var fileReferenceRE = /^SEE LICEN[CS]E IN (.+)$/;
+
 module.exports = function(argument) {
   if (spdx.valid(argument)) {
-    return {
-      validForNewPackages: true,
-      validForOldPackages: true
-    };
+    return validResult;
+  } else if (
+    argument === 'UNLICENSED' ||
+    argument === 'UNLICENCED' ||
+    fileReferenceRE.test(argument)
+  ) {
+    return validResult;
   } else {
     var warnings = [
-      'license should be a valid SPDX license expression'
+      'license should be a valid SPDX license expression, ' + 
+      '"UNLICENSED", or ' +
+      '"SEE LICENSE IN <filename>"',
     ];
     var corrected = correct(argument);
     if (corrected) {

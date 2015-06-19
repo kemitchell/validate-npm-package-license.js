@@ -14,11 +14,16 @@ var validResult = {
 valid('Apache-2.0'); // => validResult
 valid('(GPL-3.0 OR BSD-2-Clause)'); // => validResult
 
+valid('UNLICENSED'); // => validResult
+valid('UNLICENCED'); // => validResult
+
+valid('SEE LICENSE IN LICENSE.txt'); // => validResult
+
 var invalidResult = {
   validForOldPackages: false,
   validForNewPackages: false,
   warnings: [
-    'license should be a valid SPDX license expression',
+    'license should be a valid SPDX license expression, "UNLICENSED", or "SEE LICENSE IN <filename>"',
 	'license is similar to the valid expression "Apache-2.0"'
   ]
 };
