@@ -1,4 +1,4 @@
-var spdx = require('spdx');
+var parse = require('spdx-expression-parse');
 var correct = require('spdx-correct');
 
 var genericWarning = (
@@ -33,7 +33,7 @@ module.exports = function(argument) {
   var ast;
 
   try {
-    ast = spdx.parse(argument);
+    ast = parse(argument);
   } catch (e) {
     var match
     if (

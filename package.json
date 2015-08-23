@@ -4,8 +4,8 @@
   "version": "3.0.0",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
-    "spdx": "~0.4.0",
-    "spdx-correct": "~1.0.0"
+    "spdx-correct": "~1.0.0",
+    "spdx-expression-parse": "~1.0.0"
   },
   "devDependencies": {
     "defence-cli": "^1.0.1",
