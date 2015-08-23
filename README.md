@@ -3,30 +3,31 @@ validate-npm-package-license
 
 Give me a string and I'll tell you if it's a valid npm package license string.
 
-<!-- js var valid = require('./'); -->
+```javascript
+var valid = require('validate-npm-package-license');
+var assert = require('assert');
 
-```js
 var noWarnings = {
   validForNewPackages: true,
   validForOldPackages: true
 };
 
 // SPDX license identifier for common open-source licenses
-valid('MIT'); // => noWarnings
-valid('BSD-2-Clause'); // => noWarnings
-valid('Apache-2.0'); // => noWarnings
-valid('ISC'); // => noWarnings
+assert.deepEqual(valid('MIT'), noWarnings);
+assert.deepEqual(valid('BSD-2-Clause'), noWarnings);
+assert.deepEqual(valid('Apache-2.0'), noWarnings);
+assert.deepEqual(valid('ISC'), noWarnings);
 
 // Simple SPDX license expression for dual licensing
-valid('(GPL-3.0 OR BSD-2-Clause)'); // => noWarnings
+assert.deepEqual(valid('(GPL-3.0 OR BSD-2-Clause)'), noWarnings);
 
 // Refer to a non-standard license found in the package
-valid('SEE LICENSE IN LICENSE.txt'); // => noWarnings
-valid('SEE LICENSE IN license.md'); // => noWarnings
+assert.deepEqual(valid('SEE LICENSE IN LICENSE.txt'), noWarnings);
+assert.deepEqual(valid('SEE LICENSE IN license.md'), noWarnings);
 
 // No license
-valid('UNLICENSED'); // => noWarnings
-valid('UNLICENCED'); // => noWarnings
+assert.deepEqual(valid('UNLICENSED'), noWarnings);
+assert.deepEqual(valid('UNLICENCED'), noWarnings);
 
 var warningsWithSuggestion = {
   validForOldPackages: false,
@@ -41,7 +42,7 @@ var warningsWithSuggestion = {
 };
 
 // Almost a valid SPDX license identifier
-valid('Apache 2.0'); // => warningsWithSuggestion
+assert.deepEqual(valid('Apache 2.0'), warningsWithSuggestion);
 
 var warningAboutLicenseRef = {
   validForOldPackages: false,
@@ -56,6 +57,6 @@ var warningAboutLicenseRef = {
 
 // LicenseRef-* identifiers are valid SPDX expressions,
 // but not valid in package.json
-valid('LicenseRef-Made-Up'); // => warningAboutLicenseRef
-valid('(MIT OR LicenseRef-Made-Up)'); // => warningAboutLicenseRef
+assert.deepEqual(valid('LicenseRef-Made-Up'), warningAboutLicenseRef);
+assert.deepEqual(valid('(MIT OR LicenseRef-Made-Up)'), warningAboutLicenseRef);
 ```

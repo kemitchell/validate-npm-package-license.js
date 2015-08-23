@@ -15,7 +15,8 @@
     "spdx-correct": "~1.0.0"
   },
   "devDependencies": {
-    "jsmd": "~0.3.0"
+    "defence-cli": "^1.0.1",
+    "replace-require-self": "^1.0.0"
   },
   "homepage": "https://github.com/kemitchell/validate-npm-package-license.js",
   "keywords": [
@@ -31,7 +32,6 @@
     "url": "git+https://github.com/kemitchell/validate-npm-package-license.js"
   },
   "scripts": {
-    "precommit": "npm run test",
-    "test": "jsmd README.md"
+    "test": "defence README.md | replace-require-self | node"
   }
 }
