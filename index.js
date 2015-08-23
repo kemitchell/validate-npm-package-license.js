@@ -8,7 +8,7 @@ var validResult = {
 
 var genericWarning = (
   'license should be ' +
-  'a valid SPDX license expression without "LicenseRef", ' + 
+  'a valid SPDX license expression (without "LicenseRef"), ' +
   '"UNLICENSED", or ' +
   '"SEE LICENSE IN <filename>"'
 );

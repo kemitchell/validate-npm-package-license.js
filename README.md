@@ -34,7 +34,7 @@ var warningsWithSuggestion = {
   validForNewPackages: false,
   warnings: [
     'license should be ' +
-    'a valid SPDX license expression without "LicenseRef", ' + 
+    'a valid SPDX license expression (without "LicenseRef"), ' +
     '"UNLICENSED", or ' +
     '"SEE LICENSE IN <filename>"',
     'license is similar to the valid expression "Apache-2.0"'
@@ -49,7 +49,7 @@ var warningAboutLicenseRef = {
   validForNewPackages: false,
   warnings: [
     'license should be ' +
-    'a valid SPDX license expression without "LicenseRef", ' + 
+    'a valid SPDX license expression (without "LicenseRef"), ' +
     '"UNLICENSED", or ' +
     '"SEE LICENSE IN <filename>"',
   ]
