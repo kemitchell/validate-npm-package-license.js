@@ -1,11 +1,6 @@
 var spdx = require('spdx');
 var correct = require('spdx-correct');
 
-var validResult = {
-  validForNewPackages: true,
-  validForOldPackages: true
-};
-
 var genericWarning = (
   'license should be ' +
   'a valid SPDX license expression (without "LicenseRef"), ' +
@@ -40,12 +35,22 @@ module.exports = function(argument) {
   try {
     ast = spdx.parse(argument);
   } catch (e) {
+    var match
     if (
       argument === 'UNLICENSED' ||
-      argument === 'UNLICENCED' ||
-      fileReferenceRE.test(argument)
+      argument === 'UNLICENCED'
     ) {
-      return validResult;
+      return {
+        validForOldPackages: true,
+        validForNewPackages: true,
+        unlicensed: true
+      };
+    } else if (match = fileReferenceRE.exec(argument)) {
+      return {
+        validForOldPackages: true,
+        validForNewPackages: true,
+        inFile: match[1]
+      };
     } else {
       var result = {
         validForOldPackages: false,
@@ -66,9 +71,14 @@ module.exports = function(argument) {
     return {
       validForNewPackages: false,
       validForOldPackages: false,
+      spdx: true,
       warnings: [genericWarning]
     };
   } else {
-    return validResult;
+    return {
+      validForNewPackages: true,
+      validForOldPackages: true,
+      spdx: true
+    };
   }
 };
