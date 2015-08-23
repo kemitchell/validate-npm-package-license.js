@@ -20,7 +20,10 @@ assert.deepEqual(valid('Apache-2.0'), validSPDXExpression);
 assert.deepEqual(valid('ISC'), validSPDXExpression);
 
 // Simple SPDX license expression for dual licensing
-assert.deepEqual(valid('(GPL-3.0 OR BSD-2-Clause)'), validSPDXExpression);
+assert.deepEqual(
+  valid('(GPL-3.0 OR BSD-2-Clause)'),
+  validSPDXExpression
+);
 
 // Refer to a non-standard license found in the package
 
@@ -81,6 +84,12 @@ var warningAboutLicenseRef = {
 
 // LicenseRef-* identifiers are valid SPDX expressions,
 // but not valid in package.json
-assert.deepEqual(valid('LicenseRef-Made-Up'), warningAboutLicenseRef);
-assert.deepEqual(valid('(MIT OR LicenseRef-Made-Up)'), warningAboutLicenseRef);
+assert.deepEqual(
+  valid('LicenseRef-Made-Up'),
+  warningAboutLicenseRef
+);
+assert.deepEqual(
+  valid('(MIT OR LicenseRef-Made-Up)'),
+  warningAboutLicenseRef
+);
 ```
