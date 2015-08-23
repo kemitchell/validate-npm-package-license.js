@@ -2,14 +2,7 @@
   "name": "validate-npm-package-license",
   "description": "Give me a string and I'll tell you if it's a valid npm package license string",
   "version": "2.0.0",
-  "author": {
-    "name": "Kyle E. Mitchell",
-    "email": "kyle@kemitchell.com",
-    "url": "http://kemitchell.com"
-  },
-  "bugs": {
-    "url": "https://github.com/kemitchell/validate-npm-package-license.js/issues"
-  },
+  "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
     "spdx": "~0.4.0",
     "spdx-correct": "~1.0.0"
@@ -18,7 +11,6 @@
     "defence-cli": "^1.0.1",
     "replace-require-self": "^1.0.0"
   },
-  "homepage": "https://github.com/kemitchell/validate-npm-package-license.js",
   "keywords": [
     "license",
     "npm",
@@ -26,11 +18,7 @@
     "validation"
   ],
   "license": "Apache-2.0",
-  "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/kemitchell/validate-npm-package-license.js"
-  },
+  "repository": "kemitchell/validate-npm-package-license.js",
   "scripts": {
     "test": "defence README.md | replace-require-self | node"
   }
