@@ -111,3 +111,13 @@ var unlicensed = {
 assert.deepEqual(valid('UNLICENSED'), unlicensed);
 assert.deepEqual(valid('UNLICENCED'), unlicensed);
 ```
+
+Regular expressions for `SEE LICENSE IN...` and `UNLICENSED` magic values are exported as separate modules:
+
+```javascript
+var seeRE = require('validate-npm-package-license/see-license-in')
+assert(seeRE instanceof RegExp)
+
+var unRE = require('validate-npm-package-license/unlicensed')
+assert(unRE  instanceof RegExp)
+```
