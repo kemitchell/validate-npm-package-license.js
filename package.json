@@ -11,6 +11,12 @@
     "defence-cli": "^1.0.1",
     "replace-require-self": "^1.0.0"
   },
+  "files": [
+    "LICENSE",
+    "README.md",
+    "index.js",
+    "package.json"
+  ],
   "keywords": [
     "license",
     "npm",
