@@ -8,7 +8,7 @@ var genericWarning = (
   '"SEE LICENSE IN <filename>"'
 );
 
-var fileReferenceRE = /^SEE LICEN[CS]E IN (.+)$/;
+var fileReferenceRE = require('./see-license-in')
 
 function startsWith(prefix, string) {
   return string.slice(0, prefix.length) === prefix;
@@ -29,6 +29,8 @@ function usesLicenseRef(ast) {
   }
 }
 
+var unlicensedRE = require('./unlicensed')
+
 module.exports = function(argument) {
   var ast;
 
@@ -36,10 +38,7 @@ module.exports = function(argument) {
     ast = parse(argument);
   } catch (e) {
     var match
-    if (
-      argument === 'UNLICENSED' ||
-      argument === 'UNLICENCED'
-    ) {
+    if (unlicensedRE.test(argument)) {
       return {
         validForOldPackages: true,
         validForNewPackages: true,
