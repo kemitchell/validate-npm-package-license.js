@@ -5,7 +5,7 @@
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
     "spdx-correct": "~1.0.0",
-    "spdx-expression-parse": "~1.0.0"
+    "spdx-expression-parse": "^2.0.2"
   },
   "devDependencies": {
     "defence-cli": "^2.0.1",
