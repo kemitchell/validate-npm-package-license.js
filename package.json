@@ -1,7 +1,7 @@
 {
   "name": "validate-npm-package-license",
   "description": "Give me a string and I'll tell you if it's a valid npm package license string",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
     "spdx-correct": "^2.0.4",
