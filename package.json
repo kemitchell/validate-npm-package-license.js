@@ -4,7 +4,7 @@
   "version": "3.0.2",
   "author": "Kyle E. Mitchell <kyle@kemitchell.com> (https://kemitchell.com)",
   "dependencies": {
-    "spdx-correct": "^2.0.4",
+    "spdx-correct": "^3.0.0",
     "spdx-expression-parse": "^3.0.0"
   },
   "devDependencies": {
