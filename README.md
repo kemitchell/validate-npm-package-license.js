@@ -111,3 +111,7 @@ var unlicensed = {
 assert.deepEqual(valid('UNLICENSED'), unlicensed);
 assert.deepEqual(valid('UNLICENCED'), unlicensed);
 ```
+
+License
+=======
+Copyright 2019 Kyle Mitchell <kyle@kemitchell.com>
