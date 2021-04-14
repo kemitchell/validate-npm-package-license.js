@@ -106,7 +106,7 @@ If there aren't any licensing terms, use `UNLICENSED`:
 var unlicensed = {
   validForNewPackages: true,
   validForOldPackages: true,
-  unlicensed: true
+  unlicensed: true 
 };
 assert.deepEqual(valid('UNLICENSED'), unlicensed);
 assert.deepEqual(valid('UNLICENCED'), unlicensed);
