@@ -7,7 +7,7 @@
     "Mark Stacey <markjstacey@gmail.com>"
   ],
   "dependencies": {
-    "spdx-correct": "^3.0.0",
+    "spdx-correct": "^4.0.0",
     "spdx-expression-parse": "^3.0.0"
   },
   "devDependencies": {
